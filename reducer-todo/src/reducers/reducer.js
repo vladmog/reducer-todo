@@ -1,15 +1,8 @@
 export const initialState = {
-    todos: [
-        {
-            item: 'Learn about reducers',
-            completed: false,
-            id: 3892987589
-        },
-    ]
+    todos: []
   };
 
 export const reducer = (state, action) => {
-    console.log("reducer trig")
     switch (action.type) {
         case "ADD_TODO":
             const newTodo = {
@@ -17,12 +10,18 @@ export const reducer = (state, action) => {
                 id: new Date(),
                 completed: false
             }
-            return {
-                ...state,
-                todos: [...state.todos, newTodo]
-            }
+            if (action.payload === "get pizza") {
+                return {
+                    ...state,
+                    todos: [...state.todos, {item: "🍕", completed: false, id: 22}]
+                }
+            } else {
+                return {
+                    ...state,
+                    todos: [...state.todos, newTodo]
+                }
+            }   
         case "TOGGLE_TODO":
-            console.log("toggle trig")
             return {
                 ...state,
                 todos: 
