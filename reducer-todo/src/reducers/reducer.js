@@ -11,13 +11,13 @@ export const reducer = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
             const newTodo = {
-                name: action.payload,
+                item: action.payload,
                 id: Math.random(),
                 completed: false
             }
             return {
                 ...state,
-                todos: [...todos, newTodo]
+                todos: [...state.todos, newTodo]
             }
         default:
             return state;
