@@ -8,6 +8,7 @@ function Form(props) {
     const submitTodo = (e) => {
         e.preventDefault()
         props.addTodo(todo)
+        setTodo("")
     }
     return (
         <div>
@@ -17,6 +18,7 @@ function Form(props) {
                     value = {todo}
                     onChange = {handleChange}
                     placeholder = "New todo"
+                    autoComplete = "off"
                 />
                 <button onClick= {submitTodo}>Add</button>
             </form>

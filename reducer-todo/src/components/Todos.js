@@ -6,7 +6,11 @@ function Todos(props) {
         <div>
             {props.todos.map(todo => {
                 return (
-                <Todo key = {Math.random()} todo = {todo} />
+                <Todo 
+                    key = {Math.random()} 
+                    todo = {todo}
+                    dispatch = {props.dispatch}
+                />
             )})}
         </div>
     )

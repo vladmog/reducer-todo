@@ -12,15 +12,15 @@ function App() {
 
   const [{todos}, dispatch] = useReducer(reducer, initialState)
   const addTodo = (todo) => {
-    console.log("SUBMIT P2")
     dispatch({type: "ADD_TODO", payload: todo})
   }
+  
 
   return (
     <div className="App">
       <Form addTodo = {addTodo} />
-      <Todos todos = {todos} />
       
+      <Todos todos = {todos} dispatch = {dispatch} />
     </div>
   );
 }

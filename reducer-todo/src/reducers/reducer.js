@@ -9,10 +9,9 @@ export const initialState = {
   };
 
 export const reducer = (state, action) => {
-    console.log("reducer ran")
+    console.log("reducer trig")
     switch (action.type) {
         case "ADD_TODO":
-            console.log("SUBMIT p3")
             const newTodo = {
                 item: action.payload,
                 id: new Date(),
@@ -21,6 +20,27 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 todos: [...state.todos, newTodo]
+            }
+        case "TOGGLE_TODO":
+            console.log("toggle trig")
+            return {
+                ...state,
+                todos: 
+                    state.todos.map(todo => {
+                        if (action.payload === todo.id) {
+                            return {
+                                ...todo,
+                                completed: !todo.completed
+                            }
+                        } else {
+                            return todo
+                        }
+                    })
+                
+            }
+        case "CLEAR_COMPLETED":
+            return {
+                ...state
             }
         default:
             return state;
